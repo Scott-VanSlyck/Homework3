@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>HW_R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">HW_R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyverse' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tibble' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readr' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'forcats' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'lubridate' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readxl' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'bigrquery' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'RSQLite' was built under R version 4.3.3</code></pre>
+</div>
+</div>
+<section id="task-1-conceptual-questions" class="level3">
+<h3 class="anchored" data-anchor-id="task-1-conceptual-questions">Task 1: Conceptual Questions</h3>
+<p>1.To access the file, the relative path would be “../MyData.csv”.</p>
+<ol start="2" type="1">
+<li><p>R projects is beneficial for many things firstly being version control integration with systems like Git as we’ve been using it. It also is good to keep a consistent working directory and having an easier time pulling files and saving them without having to deal with those relative paths. Lastly, it does a good job with organization for scripts, data, and outputs.</p></li>
+<li><p>Github is an web-based interface that uses Git for version control, it allows people to collaborate for sharing code repos and project management. Git is the local version control system that tracks changes and coordinates work on the files. It can be used to reset to previous versions and can push/pull files to github.</p></li>
+<li><p>Firstly, with tibbles subsetting is more consistent since it always returns a tibble while with dataframes it may return a vector. Secondly, tibbles have a different look in R where it only shows 10 rows of the data making them easier to view in the console while dataframes produce all the data.</p></li>
+<li><p>Code below “iris %&gt;% as_tibble() %&gt;% select(starts_with(”Petal”), Species) %&gt;% filter(Petal.length &lt; 1.55) %&gt;% arrange(Species) ”</p></li>
+<li><p>Long format data is when each row is a unique observation while wide format data is when each person would have a single row and multiple columns representing different measurements. For statistical analysis we would prefer long format data because many statistical models are generally designed for long format data.</p></li>
+</ol>
+</section>
+<section id="task-2-reading-delimited-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-reading-delimited-data">Task 2: Reading Delimited Data</h3>
+<p>Reading in the Glass dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>name <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"ID"</span>, <span class="st">"RI"</span>, <span class="st">"Na"</span>, <span class="st">"Mg"</span>, <span class="st">"Al"</span>, <span class="st">"Si"</span>, <span class="st">"K"</span>, <span class="st">"Ca"</span>, <span class="st">"Ba"</span>, <span class="st">"Fe"</span>, <span class="st">"Type_of_glass"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>glass <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"https://www4.stat.ncsu.edu/~online/datasets/glass.data"</span>, <span class="at">col_names =</span> name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 214 Columns: 11
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (11): ID, RI, Na, Mg, Al, Si, K, Ca, Ba, Fe, Type_of_glass
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>glass</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 214 × 11
+      ID    RI    Na    Mg    Al    Si     K    Ca    Ba    Fe Type_of_glass
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;
+ 1     1  1.52  13.6  4.49  1.1   71.8  0.06  8.75     0  0                1
+ 2     2  1.52  13.9  3.6   1.36  72.7  0.48  7.83     0  0                1
+ 3     3  1.52  13.5  3.55  1.54  73.0  0.39  7.78     0  0                1
+ 4     4  1.52  13.2  3.69  1.29  72.6  0.57  8.22     0  0                1
+ 5     5  1.52  13.3  3.62  1.24  73.1  0.55  8.07     0  0                1
+ 6     6  1.52  12.8  3.61  1.62  73.0  0.64  8.07     0  0.26             1
+ 7     7  1.52  13.3  3.6   1.14  73.1  0.58  8.17     0  0                1
+ 8     8  1.52  13.2  3.61  1.05  73.2  0.57  8.24     0  0                1
+ 9     9  1.52  14.0  3.58  1.37  72.1  0.56  8.3      0  0                1
+10    10  1.52  13    3.6   1.36  73.0  0.57  8.4      0  0.11             1
+# ℹ 204 more rows</code></pre>
+</div>
+</div>
+<p>Chaining to mutate type of glass variable,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>glass <span class="ot">=</span> glass <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Type_of_glass =</span> <span class="fu">factor</span>(Type_of_glass,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"building_windows_float_processed"</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">"building_windows_non_float_processed"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">"vehicle_windows_float_processed"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">"vehicle_windows_non_float_processed"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">"containers"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">"tableware"</span>,</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">"headlamps"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Fe <span class="sc">&lt;</span> <span class="fl">0.2</span> <span class="sc">&amp;</span> Type_of_glass <span class="sc">==</span> <span class="st">"tableware"</span> <span class="sc">|</span> Type_of_glass <span class="sc">==</span> <span class="st">"headlamps"</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>glass</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 38 × 11
+      ID    RI    Na    Mg    Al    Si     K    Ca    Ba    Fe Type_of_glass
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;        
+ 1   177  1.52  14    2.39  1.56  72.4  0     9.57  0        0 tableware    
+ 2   178  1.52  13.8  2.41  1.19  72.8  0     9.77  0        0 tableware    
+ 3   179  1.52  14.5  2.24  1.62  72.4  0     9.26  0        0 tableware    
+ 4   180  1.52  14.1  2.19  1.66  72.7  0     9.32  0        0 tableware    
+ 5   181  1.51  14.4  1.74  1.54  74.6  0     7.59  0        0 tableware    
+ 6   182  1.52  15.0  0.78  1.74  72.5  0     9.95  0        0 tableware    
+ 7   183  1.52  14.2  0     2.09  72.7  0    10.9   0        0 tableware    
+ 8   184  1.52  14.6  0     0.56  73.5  0    11.2   0        0 tableware    
+ 9   185  1.51  17.4  0     0.34  75.4  0     6.65  0        0 tableware    
+10   186  1.51  13.7  3.2   1.81  72.8  1.76  5.43  1.19     0 headlamps    
+# ℹ 28 more rows</code></pre>
+</div>
+</div>
+<p>Yeast Dataset</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"seq_name"</span>, <span class="st">"mcg"</span>, <span class="st">"gvh"</span>, <span class="st">"alm"</span>, <span class="st">"mit"</span>, <span class="st">"erl"</span>, <span class="st">"pox"</span>, <span class="st">"vac"</span>, <span class="st">"nuc"</span>, <span class="st">"class"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>yeast <span class="ot">=</span> <span class="fu">read_table</span>(<span class="st">"https://www4.stat.ncsu.edu/~online/datasets/yeast.data"</span>,  <span class="at">col_names =</span> z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+── Column specification ────────────────────────────────────────────────────────
+cols(
+  seq_name = col_character(),
+  mcg = col_double(),
+  gvh = col_double(),
+  alm = col_double(),
+  mit = col_double(),
+  erl = col_double(),
+  pox = col_double(),
+  vac = col_double(),
+  nuc = col_double(),
+  class = col_character()
+)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>yeast <span class="ot">=</span> yeast <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>seq_name, <span class="sc">-</span> nuc) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(class) <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">c</span>(<span class="fu">mean</span>(.x), <span class="fu">median</span>(.x))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in
+dplyr 1.1.0.
+ℹ Please use `reframe()` instead.
+ℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`
+  always returns an ungrouped data frame and adjust accordingly.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'class'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>yeast</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 8
+# Groups:   class [10]
+   class   mcg   gvh   alm   mit   erl     pox   vac
+   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+ 1 CYT   0.481 0.470 0.535 0.227 0.504 0.00108 0.499
+ 2 CYT   0.48  0.46  0.53  0.19  0.5   0       0.51 
+ 3 ERL   0.792 0.772 0.482 0.336 1     0       0.546
+ 4 ERL   0.78  0.8   0.5   0.37  1     0       0.54 
+ 5 EXC   0.735 0.717 0.493 0.292 0.5   0       0.456
+ 6 EXC   0.77  0.73  0.49  0.28  0.5   0       0.48 
+ 7 ME1   0.789 0.757 0.376 0.312 0.5   0       0.513
+ 8 ME1   0.78  0.73  0.365 0.29  0.5   0       0.53 
+ 9 ME2   0.722 0.603 0.415 0.283 0.510 0       0.510
+10 ME2   0.76  0.59  0.41  0.26  0.5   0       0.52 
+11 ME3   0.431 0.490 0.364 0.213 0.503 0       0.510
+12 ME3   0.43  0.49  0.36  0.2   0.5   0       0.51 
+13 MIT   0.521 0.533 0.517 0.404 0.5   0.00885 0.502
+14 MIT   0.51  0.53  0.52  0.41  0.5   0       0.5  
+15 NUC   0.452 0.456 0.529 0.228 0.503 0       0.494
+16 NUC   0.45  0.46  0.53  0.2   0.5   0       0.5  
+17 POX   0.521 0.508 0.506 0.248 0.5   0.424   0.503
+18 POX   0.48  0.505 0.51  0.205 0.5   0.5     0.505
+19 VAC   0.548 0.526 0.465 0.201 0.5   0       0.525
+20 VAC   0.56  0.505 0.495 0.17  0.5   0       0.53 </code></pre>
+</div>
+</div>
+</section>
+<section id="task-2-combining-excel-and-delimited-data" class="level3">
+<h3 class="anchored" data-anchor-id="task-2-combining-excel-and-delimited-data">Task 2: Combining Excel and Delimited Data</h3>
+<p>Reading in white wine excel data,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>white_wine <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"white-wine.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>white_wine</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,898 × 12
+   `fixed acidity` `volatile acidity` `citric acid` `residual sugar` chlorides
+             &lt;dbl&gt;              &lt;dbl&gt;         &lt;dbl&gt;            &lt;dbl&gt;     &lt;dbl&gt;
+ 1               7               0.27          0.36             20.7     0.045
+ 2              63               0.3           0.34              1.6     0.049
+ 3              81               0.28          0.4               6.9     0.05 
+ 4              72               0.23          0.32              8.5     0.058
+ 5              72               0.23          0.32              8.5     0.058
+ 6              81               0.28          0.4               6.9     0.05 
+ 7              62               0.32          0.16              7       0.045
+ 8               7               0.27          0.36             20.7     0.045
+ 9              63               0.3           0.34              1.6     0.049
+10              81               0.22          0.43              1.5     0.044
+# ℹ 4,888 more rows
+# ℹ 7 more variables: `free sulfur dioxide` &lt;dbl&gt;,
+#   `total sulfur dioxide` &lt;dbl&gt;, density &lt;dbl&gt;, pH &lt;dbl&gt;, sulphates &lt;dbl&gt;,
+#   alcohol &lt;dbl&gt;, quality &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>wine_name <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"white-wine.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">2</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>wine_name <span class="ot">=</span> <span class="fu">t</span>(wine_name)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(white_wine) <span class="ot">=</span> wine_name</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>white_wine<span class="sc">$</span>type <span class="ot">=</span> <span class="st">"white"</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>white_wine</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,898 × 13
+   fixed_acidity volatile_acidity citric_acid residual_sugar chlorides
+           &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;
+ 1             7             0.27        0.36           20.7     0.045
+ 2            63             0.3         0.34            1.6     0.049
+ 3            81             0.28        0.4             6.9     0.05 
+ 4            72             0.23        0.32            8.5     0.058
+ 5            72             0.23        0.32            8.5     0.058
+ 6            81             0.28        0.4             6.9     0.05 
+ 7            62             0.32        0.16            7       0.045
+ 8             7             0.27        0.36           20.7     0.045
+ 9            63             0.3         0.34            1.6     0.049
+10            81             0.22        0.43            1.5     0.044
+# ℹ 4,888 more rows
+# ℹ 8 more variables: free_sulfur_dioxide &lt;dbl&gt;, total_sulfur_dioxide &lt;dbl&gt;,
+#   density &lt;dbl&gt;, pH &lt;dbl&gt;, sulphates &lt;dbl&gt;, alcohol &lt;dbl&gt;, quality &lt;dbl&gt;,
+#   type &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>Reading in the red wine data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>red_wine <span class="ot">=</span> <span class="fu">read_csv2</span>(<span class="st">"https://www4.stat.ncsu.edu/~online/datasets/red-wine.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat &lt;- vroom(...)
+  problems(dat)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 1599 Columns: 12</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr (5): volatile acidity, citric acid, chlorides, density, sulphates
+dbl (2): total sulfur dioxide, quality
+num (5): fixed acidity, residual sugar, free sulfur dioxide, pH, alcohol
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(red_wine) <span class="ot">=</span> wine_name</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>red_wine<span class="sc">$</span>type <span class="ot">=</span> <span class="st">"red"</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>red_wine <span class="ot">=</span> <span class="fu">mutate</span>(red_wine,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">volatile_acidity =</span> <span class="fu">as.numeric</span>(volatile_acidity),</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">citric_acid =</span> <span class="fu">as.numeric</span>(citric_acid),</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">chlorides =</span> <span class="fu">as.numeric</span>(chlorides),</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">density =</span> <span class="fu">as.numeric</span>(density),</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sulphates =</span> <span class="fu">as.numeric</span>(sulphates))</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>red_wine</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,599 × 13
+   fixed_acidity volatile_acidity citric_acid residual_sugar chlorides
+           &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;
+ 1            74             0.7         0                19     0.076
+ 2            78             0.88        0                26     0.098
+ 3            78             0.76        0.04             23     0.092
+ 4           112             0.28        0.56             19     0.075
+ 5            74             0.7         0                19     0.076
+ 6            74             0.66        0                18     0.075
+ 7            79             0.6         0.06             16     0.069
+ 8            73             0.65        0                12     0.065
+ 9            78             0.58        0.02              2     0.073
+10            75             0.5         0.36             61     0.071
+# ℹ 1,589 more rows
+# ℹ 8 more variables: free_sulfur_dioxide &lt;dbl&gt;, total_sulfur_dioxide &lt;dbl&gt;,
+#   density &lt;dbl&gt;, pH &lt;dbl&gt;, sulphates &lt;dbl&gt;, alcohol &lt;dbl&gt;, quality &lt;dbl&gt;,
+#   type &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>Combining the datasets</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>wines <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(white_wine, red_wine)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>wines <span class="ot">=</span> wines <span class="sc">%&gt;%</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(quality <span class="sc">&gt;</span> <span class="fl">6.5</span> <span class="sc">&amp;</span> alcohol <span class="sc">&lt;</span> <span class="dv">132</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(quality)) <span class="sc">%&gt;%</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"acid"</span>), alcohol, type, quality) <span class="sc">%&gt;%</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_alcohol =</span> <span class="fu">ave</span>(alcohol, quality, <span class="at">FUN =</span> mean),</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">sd_alcohol =</span> <span class="fu">ave</span>(alcohol, quality, <span class="at">FUN =</span> sd))</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>wines</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,198 × 8
+   fixed_acidity volatile_acidity citric_acid alcohol type  quality mean_alcohol
+           &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;        &lt;dbl&gt;
+ 1            91             0.27        0.45     104 white       9         122.
+ 2            66             0.36        0.29     124 white       9         122.
+ 3            74             0.24        0.36     125 white       9         122.
+ 4            69             0.36        0.34     127 white       9         122.
+ 5            71             0.26        0.49     129 white       9         122.
+ 6            62             0.66        0.48     128 white       8         102.
+ 7            62             0.66        0.48     128 white       8         102.
+ 8            68             0.26        0.42     105 white       8         102.
+ 9            67             0.23        0.31     107 white       8         102.
+10            67             0.23        0.31     107 white       8         102.
+# ℹ 1,188 more rows
+# ℹ 1 more variable: sd_alcohol &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="task-3-database-practice" class="level3">
+<h3 class="anchored" data-anchor-id="task-3-database-practice">Task 3: Database Practice</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"C:/Users/scott/OneDrive/Documents/ST 558/Homework3/lahman.db"</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>Teams_2015 <span class="ot">=</span> <span class="fu">tbl</span>(con, <span class="st">"Teams"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(yearID <span class="sc">==</span> <span class="dv">2015</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>Teams_sql_2015 <span class="ot">=</span> <span class="fu">tbl</span>(con, <span class="fu">sql</span>(<span class="st">"SELECT * FROM Teams WHERE yearID = 2015"</span>))</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>Teams_2015</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Source:   SQL [?? x 48]
+# Database: sqlite 3.46.0 [C:\Users\scott\OneDrive\Documents\ST 558\Homework3\lahman.db]
+   yearID lgID  teamID franchID divID  Rank     G Ghome     W     L DivWin WCWin
+    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;
+ 1   2015 NL    ARI    ARI      W         3   162    81    79    83 N      N    
+ 2   2015 NL    ATL    ATL      E         4   162    81    67    95 N      N    
+ 3   2015 AL    BAL    BAL      E         3   162    78    81    81 N      N    
+ 4   2015 AL    BOS    BOS      E         5   162    81    78    84 N      N    
+ 5   2015 AL    CHA    CHW      C         4   162    81    76    86 N      N    
+ 6   2015 NL    CHN    CHC      C         3   162    81    97    65 N      Y    
+ 7   2015 NL    CIN    CIN      C         5   162    81    64    98 N      N    
+ 8   2015 AL    CLE    CLE      C         3   161    80    81    80 N      N    
+ 9   2015 NL    COL    COL      W         5   162    81    68    94 N      N    
+10   2015 AL    DET    DET      C         5   161    81    74    87 N      N    
+# ℹ more rows
+# ℹ 36 more variables: LgWin &lt;chr&gt;, WSWin &lt;chr&gt;, R &lt;int&gt;, AB &lt;int&gt;, H &lt;int&gt;,
+#   X2B &lt;int&gt;, X3B &lt;int&gt;, HR &lt;int&gt;, BB &lt;int&gt;, SO &lt;int&gt;, SB &lt;int&gt;, CS &lt;int&gt;,
+#   HBP &lt;int&gt;, SF &lt;int&gt;, RA &lt;int&gt;, ER &lt;int&gt;, ERA &lt;dbl&gt;, CG &lt;int&gt;, SHO &lt;int&gt;,
+#   SV &lt;int&gt;, IPouts &lt;int&gt;, HA &lt;int&gt;, HRA &lt;int&gt;, BBA &lt;int&gt;, SOA &lt;int&gt;, E &lt;int&gt;,
+#   DP &lt;int&gt;, FP &lt;dbl&gt;, name &lt;chr&gt;, park &lt;chr&gt;, attendance &lt;int&gt;, BPF &lt;int&gt;,
+#   PPF &lt;int&gt;, teamIDBR &lt;chr&gt;, teamIDlahman45 &lt;chr&gt;, teamIDretro &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>Teams_sql_2015</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Source:   SQL [?? x 48]
+# Database: sqlite 3.46.0 [C:\Users\scott\OneDrive\Documents\ST 558\Homework3\lahman.db]
+   yearID lgID  teamID franchID divID  Rank     G Ghome     W     L DivWin WCWin
+    &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;
+ 1   2015 NL    ARI    ARI      W         3   162    81    79    83 N      N    
+ 2   2015 NL    ATL    ATL      E         4   162    81    67    95 N      N    
+ 3   2015 AL    BAL    BAL      E         3   162    78    81    81 N      N    
+ 4   2015 AL    BOS    BOS      E         5   162    81    78    84 N      N    
+ 5   2015 AL    CHA    CHW      C         4   162    81    76    86 N      N    
+ 6   2015 NL    CHN    CHC      C         3   162    81    97    65 N      Y    
+ 7   2015 NL    CIN    CIN      C         5   162    81    64    98 N      N    
+ 8   2015 AL    CLE    CLE      C         3   161    80    81    80 N      N    
+ 9   2015 NL    COL    COL      W         5   162    81    68    94 N      N    
+10   2015 AL    DET    DET      C         5   161    81    74    87 N      N    
+# ℹ more rows
+# ℹ 36 more variables: LgWin &lt;chr&gt;, WSWin &lt;chr&gt;, R &lt;int&gt;, AB &lt;int&gt;, H &lt;int&gt;,
+#   X2B &lt;int&gt;, X3B &lt;int&gt;, HR &lt;int&gt;, BB &lt;int&gt;, SO &lt;int&gt;, SB &lt;int&gt;, CS &lt;int&gt;,
+#   HBP &lt;int&gt;, SF &lt;int&gt;, RA &lt;int&gt;, ER &lt;int&gt;, ERA &lt;dbl&gt;, CG &lt;int&gt;, SHO &lt;int&gt;,
+#   SV &lt;int&gt;, IPouts &lt;int&gt;, HA &lt;int&gt;, HRA &lt;int&gt;, BBA &lt;int&gt;, SOA &lt;int&gt;, E &lt;int&gt;,
+#   DP &lt;int&gt;, FP &lt;dbl&gt;, name &lt;chr&gt;, park &lt;chr&gt;, attendance &lt;int&gt;, BPF &lt;int&gt;,
+#   PPF &lt;int&gt;, teamIDBR &lt;chr&gt;, teamIDlahman45 &lt;chr&gt;, teamIDretro &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>4,5. Hall of fame players and combine to get First and Last name</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbListTables</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "AllstarFull"         "Appearances"         "AwardsManagers"     
+ [4] "AwardsPlayers"       "AwardsShareManagers" "AwardsSharePlayers" 
+ [7] "Batting"             "BattingPost"         "CollegePlaying"     
+[10] "Fielding"            "FieldingOF"          "FieldingOFsplit"    
+[13] "FieldingPost"        "HallOfFame"          "HomeGames"          
+[16] "LahmanData"          "Managers"            "ManagersHalf"       
+[19] "Parks"               "People"              "Pitching"           
+[22] "PitchingPost"        "Salaries"            "Schools"            
+[25] "SeriesPost"          "Teams"               "TeamsFranchises"    
+[28] "TeamsHalf"           "battingLabels"       "fieldingLabels"     
+[31] "pitchingLabels"     </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>HOF <span class="ot">=</span> <span class="fu">tbl</span>(con, <span class="st">"HallofFame"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(inducted <span class="sc">==</span> <span class="st">"Y"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(playerID, yearID, category)</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>HOF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Source:   SQL [?? x 3]
+# Database: sqlite 3.46.0 [C:\Users\scott\OneDrive\Documents\ST 558\Homework3\lahman.db]
+   playerID  yearID category         
+   &lt;chr&gt;      &lt;int&gt; &lt;chr&gt;            
+ 1 cobbty01    1936 Player           
+ 2 ruthba01    1936 Player           
+ 3 wagneho01   1936 Player           
+ 4 mathech01   1936 Player           
+ 5 johnswa01   1936 Player           
+ 6 lajoina01   1937 Player           
+ 7 speaktr01   1937 Player           
+ 8 youngcy01   1937 Player           
+ 9 bulkemo99   1937 Pioneer/Executive
+10 johnsba99   1937 Pioneer/Executive
+# ℹ more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(con, <span class="st">"People"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Source:   table&lt;People&gt; [?? x 26]
+# Database: sqlite 3.46.0 [C:\Users\scott\OneDrive\Documents\ST 558\Homework3\lahman.db]
+   playerID  birthYear birthMonth birthDay birthCountry birthState birthCity   
+   &lt;chr&gt;         &lt;int&gt;      &lt;int&gt;    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;       
+ 1 aardsda01      1981         12       27 USA          CO         Denver      
+ 2 aaronha01      1934          2        5 USA          AL         Mobile      
+ 3 aaronto01      1939          8        5 USA          AL         Mobile      
+ 4 aasedo01       1954          9        8 USA          CA         Orange      
+ 5 abadan01       1972          8       25 USA          FL         Palm Beach  
+ 6 abadfe01       1985         12       17 D.R.         La Romana  La Romana   
+ 7 abadijo01      1850         11        4 USA          PA         Philadelphia
+ 8 abbated01      1877          4       15 USA          PA         Latrobe     
+ 9 abbeybe01      1869         11       11 USA          VT         Essex       
+10 abbeych01      1866         10       14 USA          NE         Falls City  
+# ℹ more rows
+# ℹ 19 more variables: deathYear &lt;int&gt;, deathMonth &lt;int&gt;, deathDay &lt;int&gt;,
+#   deathCountry &lt;chr&gt;, deathState &lt;chr&gt;, deathCity &lt;chr&gt;, nameFirst &lt;chr&gt;,
+#   nameLast &lt;chr&gt;, nameGiven &lt;chr&gt;, weight &lt;int&gt;, height &lt;int&gt;, bats &lt;chr&gt;,
+#   throws &lt;chr&gt;, debut &lt;chr&gt;, finalGame &lt;chr&gt;, retroID &lt;chr&gt;, bbrefID &lt;chr&gt;,
+#   deathDate &lt;dbl&gt;, birthDate &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>HOF_names <span class="ot">=</span> <span class="fu">left_join</span>(HOF, <span class="fu">tbl</span>(con, <span class="st">"People"</span>), <span class="at">by =</span> <span class="fu">join_by</span>(playerID <span class="sc">==</span> playerID)) <span class="sc">%&gt;%</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(playerID, yearID, category,nameFirst, nameLast)</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>HOF_names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 340 × 5
+   playerID  yearID category          nameFirst nameLast 
+   &lt;chr&gt;      &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;     &lt;chr&gt;    
+ 1 cobbty01    1936 Player            Ty        Cobb     
+ 2 ruthba01    1936 Player            Babe      Ruth     
+ 3 wagneho01   1936 Player            Honus     Wagner   
+ 4 mathech01   1936 Player            Christy   Mathewson
+ 5 johnswa01   1936 Player            Walter    Johnson  
+ 6 lajoina01   1937 Player            Nap       Lajoie   
+ 7 speaktr01   1937 Player            Tris      Speaker  
+ 8 youngcy01   1937 Player            Cy        Young    
+ 9 bulkemo99   1937 Pioneer/Executive Morgan    Bulkeley 
+10 johnsba99   1937 Pioneer/Executive Ban       Johnson  
+# ℹ 330 more rows</code></pre>
+</div>
+</div>
+<p>6,7.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tbl</span>(con, <span class="st">"Managers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Source:   table&lt;Managers&gt; [?? x 10]
+# Database: sqlite 3.46.0 [C:\Users\scott\OneDrive\Documents\ST 558\Homework3\lahman.db]
+   playerID  yearID teamID lgID  inseason     G     W     L  rank plyrMgr
+   &lt;chr&gt;      &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
+ 1 wrighha01   1871 BS1    NA           1    31    20    10     3 Y      
+ 2 woodji01    1871 CH1    NA           1    28    19     9     2 Y      
+ 3 paborch01   1871 CL1    NA           1    29    10    19     8 Y      
+ 4 lennobi01   1871 FW1    NA           1    14     5     9     8 Y      
+ 5 deaneha01   1871 FW1    NA           2     5     2     3     8 Y      
+ 6 fergubo01   1871 NY2    NA           1    33    16    17     5 Y      
+ 7 mcbridi01   1871 PH1    NA           1    28    21     7     1 Y      
+ 8 hastisc01   1871 RC1    NA           1    25     4    21     9 Y      
+ 9 pikeli01    1871 TRO    NA           1     4     1     3     6 Y      
+10 cravebi01   1871 TRO    NA           2    25    12    12     6 Y      
+# ℹ more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>Mngrs <span class="ot">=</span> <span class="fu">tbl</span>(con, <span class="st">"Managers"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(playerID, G, W, L) <span class="sc">%&gt;%</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(playerID) <span class="sc">%&gt;%</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">G_managed =</span> <span class="fu">sum</span>(G, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">Total_W =</span> <span class="fu">sum</span>(W, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">Total_L =</span> <span class="fu">sum</span>(L, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">careerw_pct =</span> Total_W<span class="sc">/</span>G_managed) <span class="sc">%&gt;%</span></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(careerw_pct))</span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>Mngrs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 749 × 5
+   playerID  G_managed Total_W Total_L careerw_pct
+   &lt;chr&gt;         &lt;int&gt;   &lt;int&gt;   &lt;int&gt;       &lt;dbl&gt;
+ 1 bensove01         1       1       0           1
+ 2 burwebi01         1       1       0           1
+ 3 cohenan01         1       1       0           1
+ 4 ebeldi99          3       3       0           1
+ 5 falkbi01          1       1       0           1
+ 6 hardeme01         3       3       0           1
+ 7 simmote01         1       1       0           1
+ 8 steinte01         2       2       0           1
+ 9 sukefcl01         2       2       0           1
+10 tamarjo01         1       1       0           1
+# ℹ 739 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>HOF_Mngr <span class="ot">=</span> <span class="fu">merge</span>(Mngrs, HOF_names, <span class="at">by =</span> <span class="st">"playerID"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(yearID)) <span class="sc">%&gt;%</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(careerw_pct))</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>HOF_Mngr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    playerID G_managed Total_W Total_L careerw_pct yearID          category
+1  simmote01         1       1       0   1.0000000   2020            Player
+2  wrighge01        85      59      25   0.6941176   1937 Pioneer/Executive
+3  spaldal01       126      78      47   0.6190476   1939 Pioneer/Executive
+4  mccarjo99      3487    2125    1333   0.6094064   1957           Manager
+5  comisch01      1410     840     541   0.5957447   1939 Pioneer/Executive
+6  southbi01      1770    1044     704   0.5898305   2008           Manager
+7  seleefr99      2180    1284     862   0.5889908   1999           Manager
+8  chancfr01      1622     946     648   0.5832306   1946            Player
+9  weaveea99      2541    1480    1060   0.5824479   1996           Manager
+10 lopezal01      2425    1410    1004   0.5814433   1977           Manager
+11 cochrmi01       600     348     250   0.5800000   1947            Player
+12 mcgrajo01      4769    2763    1948   0.5793667   1937           Manager
+13 wrighha01      2145    1225     885   0.5710956   1953 Pioneer/Executive
+14 ansonca01      2288    1296     947   0.5664336   1939            Player
+15 clarkfr01      2829    1602    1181   0.5662778   1945            Player
+16 alstowa01      3658    2040    1613   0.5576818   1983           Manager
+17 mccarto01        27      15      12   0.5555556   1946            Player
+18   coxbo01      4499    2497    1999   0.5550122   2014           Manager
+19 terrybi01      1496     823     661   0.5501337   1954            Player
+20 huggimi01      2570    1413    1134   0.5498054   1964           Manager
+21  wardjo01       751     412     320   0.5486019   1964            Player
+22 johnswa01       966     529     432   0.5476190   1936            Player
+23 andersp01      4030    2194    1834   0.5444169   2000           Manager
+24 dickebi01       105      57      48   0.5428571   1954            Player
+25 speaktr01      1139     617     520   0.5417032   1937            Player
+26 ewingbu01       903     489     395   0.5415282   1939            Player
+27 colliji01       842     455     376   0.5403800   1945            Player
+28 lajoina01       700     377     309   0.5385714   1937            Player
+29 jennihu01      2203    1184     995   0.5374489   1945            Player
+30 torrejo01      4323    2322    1995   0.5371270   2014           Manager
+31 durocle01      3739    2008    1709   0.5370420   1994           Manager
+32 larusto01      5410    2898    2509   0.5356747   2014           Manager
+33 cronijo01      2315    1236    1055   0.5339093   1956            Player
+34 herzowh01      2409    1281    1125   0.5317559   2010           Manager
+35 hartnga01       383     203     176   0.5300261   1955            Player
+36 traynpi01       868     457     406   0.5264977   1948            Player
+37 lasorto01      3041    1599    1439   0.5258139   1997           Manager
+38 kellyki01       330     173     148   0.5242424   1945            Player
+39 schoere01      1999    1041     955   0.5207604   1989            Player
+40 berrayo01       930     484     444   0.5204301   1972            Player
+41 mckecbi01      3647    1896    1723   0.5198794   1962           Manager
+42 willidi02      3023    1571    1451   0.5196824   2008           Manager
+43 hanlone01      2530    1313    1164   0.5189723   1996           Manager
+44 collied01       336     174     160   0.5178571   1939            Player
+45 lemonbo01       833     430     403   0.5162065   1976            Player
+46  cobbty01       933     479     444   0.5133976   1936            Player
+47 griffcl01      2918    1491    1367   0.5109664   1946            Player
+48 friscfr01      2246    1138    1078   0.5066785   1947            Player
+49 stengca01      3766    1905    1842   0.5058417   1966           Manager
+50 kellejo01       669     338     321   0.5052317   1971            Player
+51 youngcy01         6       3       3   0.5000000   1937            Player
+52 robinwi01      2819    1399    1398   0.4962753   1945           Manager
+53 gordojo01       615     305     308   0.4959350   2009            Player
+54  odayha01       311     153     154   0.4919614   2013            Umpire
+55 harribu01      4410    2158    2219   0.4893424   1975           Manager
+56 tinkejo01       626     304     308   0.4856230   1946            Player
+57 barroed99       639     310     320   0.4851330   1953 Pioneer/Executive
+58 boudrlo01      2404    1162    1224   0.4833611   1970            Player
+59 orourji01       510     246     258   0.4823529   1945            Player
+60  mackco01      7755    3731    3948   0.4811090   1937           Manager
+61 eversjo01       375     180     192   0.4800000   1946            Player
+62 matheed01       311     149     161   0.4790997   1978            Player
+63 robinfr02      2242    1065    1176   0.4750223   1982            Player
+64 mathech01       346     164     176   0.4739884   1936            Player
+65 nichoki01       169      80      88   0.4733728   1949            Player
+66 sislege01       462     218     241   0.4718615   1939            Player
+67 perezto01       157      74      83   0.4713376   2000            Player
+68 molitpa01       648     305     343   0.4706790   2004            Player
+69 careyma01       311     146     161   0.4694534   1961            Player
+70 rickebr01      1277     597     664   0.4675020   1967 Pioneer/Executive
+71 hodgegi01      1414     660     753   0.4667610   2022            Player
+72   ottme01      1004     464     530   0.4621514   1951            Player
+73 hornsro01      1530     701     812   0.4581699   1942            Player
+74 whitede01        20       9      11   0.4500000   2013            Player
+75 schalra01       228     102     125   0.4473684   1955            Player
+76 brownmo01       114      50      63   0.4385965   1949            Player
+77 duffyhu01      1221     535     671   0.4381654   1945            Player
+78 maranra01        53      23      30   0.4339623   1954            Player
+79 willite01       637     273     364   0.4285714   1966            Player
+80 grimebu01       306     131     171   0.4281046   1964            Player
+81 sandbry01       278     119     159   0.4280576   2005            Player
+82 lyonste01       434     185     245   0.4262673   1955            Player
+83  dobyla01        87      37      50   0.4252874   1998            Player
+84 davisge01       252     107     139   0.4246032   1998            Player
+85 bresnro01       775     328     432   0.4232258   1945            Player
+86 hermabi01       465     189     274   0.4064516   1975            Player
+87 bancrda01       615     249     363   0.4048780   1971            Player
+88 trammal01       498     191     307   0.3835341   2018            Player
+89 mcphebi01       207      79     124   0.3816425   2000            Player
+90 walshed01         3       1       2   0.3333333   1946            Player
+91 galvipu01        24       7      17   0.2916667   1965            Player
+92 wallabo01       217      62     154   0.2857143   1953            Player
+93 bottoji01        78      21      56   0.2692308   1974            Player
+94 applilu01        40      10      30   0.2500000   1964            Player
+95 baineha01         4       1       3   0.2500000   2019            Player
+96 wagneho01         5       1       4   0.2000000   1936            Player
+97 connoro01        46       8      37   0.1739130   1976            Player
+   nameFirst     nameLast
+1        Ted      Simmons
+2     George       Wright
+3         Al     Spalding
+4        Joe     McCarthy
+5    Charlie     Comiskey
+6      Billy   Southworth
+7      Frank        Selee
+8      Frank       Chance
+9       Earl       Weaver
+10        Al        Lopez
+11    Mickey     Cochrane
+12      John       McGraw
+13     Harry       Wright
+14       Cap        Anson
+15      Fred       Clarke
+16    Walter       Alston
+17     Tommy     McCarthy
+18     Bobby          Cox
+19      Bill        Terry
+20    Miller      Huggins
+21      John         Ward
+22    Walter      Johnson
+23    Sparky     Anderson
+24      Bill       Dickey
+25      Tris      Speaker
+26      Buck        Ewing
+27     Jimmy      Collins
+28       Nap       Lajoie
+29    Hughie     Jennings
+30       Joe        Torre
+31       Leo     Durocher
+32      Tony      LaRussa
+33       Joe       Cronin
+34    Whitey       Herzog
+35     Gabby     Hartnett
+36       Pie      Traynor
+37       Tom      Lasorda
+38      King        Kelly
+39       Red Schoendienst
+40      Yogi        Berra
+41      Bill    McKechnie
+42      Dick     Williams
+43       Ned       Hanlon
+44     Eddie      Collins
+45       Bob        Lemon
+46        Ty         Cobb
+47     Clark     Griffith
+48   Frankie       Frisch
+49     Casey      Stengel
+50       Joe       Kelley
+51        Cy        Young
+52   Wilbert     Robinson
+53       Joe       Gordon
+54      Hank        O'Day
+55     Bucky       Harris
+56       Joe       Tinker
+57        Ed       Barrow
+58       Lou     Boudreau
+59       Jim     O'Rourke
+60    Connie         Mack
+61    Johnny        Evers
+62     Eddie      Mathews
+63     Frank     Robinson
+64   Christy    Mathewson
+65       Kid      Nichols
+66    George       Sisler
+67      Tony        Perez
+68      Paul      Molitor
+69       Max        Carey
+70    Branch       Rickey
+71       Gil       Hodges
+72       Mel          Ott
+73    Rogers      Hornsby
+74    Deacon        White
+75       Ray       Schalk
+76  Mordecai        Brown
+77      Hugh        Duffy
+78    Rabbit   Maranville
+79       Ted     Williams
+80  Burleigh       Grimes
+81      Ryne     Sandberg
+82       Ted        Lyons
+83     Larry         Doby
+84    George        Davis
+85     Roger    Bresnahan
+86     Billy       Herman
+87      Dave     Bancroft
+88      Alan     Trammell
+89       Bid       McPhee
+90        Ed        Walsh
+91       Pud       Galvin
+92     Bobby      Wallace
+93       Jim    Bottomley
+94      Luke      Appling
+95    Harold       Baines
+96     Honus       Wagner
+97     Roger       Connor</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

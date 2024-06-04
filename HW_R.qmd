@@ -1,0 +1,186 @@
+---
+title: "HW_R"
+format: html
+editor: visual
+---
+```{r}
+#| echo: FALSE
+
+library(tidyverse)
+library(readxl)
+library(DBI)
+library(bigrquery)
+library(RSQLite)
+```
+
+### Task 1: Conceptual Questions
+
+1.To access the file, the relative path would be "../MyData.csv".
+
+2. R projects is beneficial for many things firstly being version control integration with systems like Git as we've been using it. It also is good to keep a consistent working directory and having an easier time pulling files and saving them without having to deal with those relative paths. Lastly, it does a good job with organization for scripts, data, and outputs.
+
+3. Github is an web-based interface that uses Git for version control, it allows people to collaborate for sharing code repos and project management. Git is the local version control system that tracks changes and coordinates work on the files. It can be used to reset to previous versions and can push/pull files to github.
+
+4. Firstly, with tibbles subsetting is more consistent since it always returns a tibble while with dataframes it may return a vector. Secondly, tibbles have a different look in R where it only shows 10 rows of the data making them easier to view in the console while dataframes produce all the data.
+
+5. Code below
+"iris %>%
+  as_tibble() %>%
+  select(starts_with("Petal"), Species) %>%
+  filter(Petal.length < 1.55) %>%
+  arrange(Species)
+"
+
+6. Long format data is when each row is a unique observation while wide format data is when each person would have a single row and multiple columns representing different measurements. For statistical analysis we would prefer long format data because many statistical models are generally designed for long format data.
+
+
+### Task 2: Reading Delimited Data
+Reading in the Glass dataset.
+```{r}
+name = c("ID", "RI", "Na", "Mg", "Al", "Si", "K", "Ca", "Ba", "Fe", "Type_of_glass")
+glass = read_csv("https://www4.stat.ncsu.edu/~online/datasets/glass.data", col_names = name)
+
+glass
+```
+
+Chaining to mutate type of glass variable,
+
+```{r}
+glass = glass %>%
+  mutate(Type_of_glass = factor(Type_of_glass,
+                                levels = 1:7,
+                                labels = c("building_windows_float_processed",
+                                           "building_windows_non_float_processed",
+                                           "vehicle_windows_float_processed",
+                                           "vehicle_windows_non_float_processed",
+                                           "containers",
+                                           "tableware",
+                                           "headlamps"))) %>%
+  filter(Fe < 0.2 & Type_of_glass == "tableware" | Type_of_glass == "headlamps")
+
+glass
+```
+
+Yeast Dataset
+```{r}
+z = c("seq_name", "mcg", "gvh", "alm", "mit", "erl", "pox", "vac", "nuc", "class")
+yeast = read_table("https://www4.stat.ncsu.edu/~online/datasets/yeast.data",  col_names = z)
+
+yeast = yeast %>%
+  select(-seq_name, - nuc) %>%
+  group_by(class) %>%
+  summarise(across(everything(), ~ c(mean(.x), median(.x))))
+
+yeast
+```
+
+### Task 2: Combining Excel and Delimited Data
+
+Reading in white wine excel data,
+```{r}
+white_wine = read_excel("white-wine.xlsx", sheet = 1)
+
+white_wine
+
+wine_name = read_excel("white-wine.xlsx", sheet = 2)
+wine_name = t(wine_name)
+
+colnames(white_wine) = wine_name
+
+white_wine$type = "white"
+
+white_wine
+```
+
+
+Reading in the red wine data
+```{r}
+red_wine = read_csv2("https://www4.stat.ncsu.edu/~online/datasets/red-wine.csv")
+colnames(red_wine) = wine_name
+red_wine$type = "red"
+
+red_wine = mutate(red_wine,
+                  volatile_acidity = as.numeric(volatile_acidity),
+                  citric_acid = as.numeric(citric_acid),
+                  chlorides = as.numeric(chlorides),
+                  density = as.numeric(density),
+                  sulphates = as.numeric(sulphates))
+
+red_wine
+```
+
+Combining the datasets
+```{r}
+wines = dplyr::bind_rows(white_wine, red_wine)
+
+wines = wines %>%
+  filter(quality > 6.5 & alcohol < 132) %>%
+  arrange(desc(quality)) %>%
+  select(contains("acid"), alcohol, type, quality) %>%
+  mutate(mean_alcohol = ave(alcohol, quality, FUN = mean),
+         sd_alcohol = ave(alcohol, quality, FUN = sd))
+  
+wines
+  
+```
+
+
+### Task 3: Database Practice
+
+```{r}
+con <- dbConnect(RSQLite::SQLite(), "C:/Users/scott/OneDrive/Documents/ST 558/Homework3/lahman.db")
+
+Teams_2015 = tbl(con, "Teams") %>%
+  filter(yearID == 2015)
+
+Teams_sql_2015 = tbl(con, sql("SELECT * FROM Teams WHERE yearID = 2015"))
+
+Teams_2015
+Teams_sql_2015
+```
+
+4,5. Hall of fame players and combine to get First and Last name
+```{r}
+dbListTables(con)
+
+HOF = tbl(con, "HallofFame") %>%
+  filter(inducted == "Y") %>%
+  select(playerID, yearID, category)
+
+HOF
+tbl(con, "People")
+
+HOF_names = left_join(HOF, tbl(con, "People"), by = join_by(playerID == playerID)) %>%
+  collect() %>%
+  select(playerID, yearID, category,nameFirst, nameLast)
+
+HOF_names
+```
+
+
+6,7.
+```{r}
+tbl(con, "Managers")
+
+Mngrs = tbl(con, "Managers") %>%
+  select(playerID, G, W, L) %>%
+  group_by(playerID) %>%
+  summarize(G_managed = sum(G, na.rm = TRUE),
+      Total_W = sum(W, na.rm = TRUE),
+      Total_L = sum(L, na.rm = TRUE)) %>%
+  collect() %>%
+  mutate(careerw_pct = Total_W/G_managed) %>%
+  arrange(desc(careerw_pct))
+
+Mngrs
+
+
+HOF_Mngr = merge(Mngrs, HOF_names, by = "playerID", all.x = TRUE) %>%
+  filter(!is.na(yearID)) %>%
+  arrange(desc(careerw_pct))
+
+HOF_Mngr
+
+```
+
+
